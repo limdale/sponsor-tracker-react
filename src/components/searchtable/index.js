@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from '../searchbar';
 import CompaniesTable from '../table';
 
-class Main extends React.Component {
+class SearchTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,4 +48,4 @@ class Main extends React.Component {
     }
 }
 
-export default Main;
+export default SearchTable;
