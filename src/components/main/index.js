@@ -12,6 +12,7 @@ class Main extends React.Component {
         }
 
         this.onSearchChange = this.onSearchChange.bind(this);
+        this.onCompanyClick = this.onCompanyClick.bind(this);
     }
 
     componentDidMount() {
@@ -33,11 +34,15 @@ class Main extends React.Component {
         });
     }
 
+    onCompanyClick(company) {
+        console.log("open " + company.name);
+    }
+
     render() {
         return (
             <div>
                 <SearchBar search={this.state.search} onSearchChange={this.onSearchChange} />
-                <CompaniesTable companies={this.state.filteredCompanies} />
+                <CompaniesTable companies={this.state.filteredCompanies} onCompanyClick={this.onCompanyClick} />
             </div>
         )
     }

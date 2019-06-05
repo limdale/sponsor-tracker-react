@@ -6,7 +6,7 @@ class CompaniesTable extends React.Component {
     }
 
     render() {
-        let companies = this.props.companies.map(company => <CompaniesTableItem company={company} />)
+        let companies = this.props.companies.map(company => <CompaniesTableItem onCompanyClick={this.props.onCompanyClick} company={company} />)
         return (
             <div>
                 {companies}
@@ -17,8 +17,8 @@ class CompaniesTable extends React.Component {
 
 function CompaniesTableItem(props) {
     return (
-        <p>
-            {props.company.name}
+        <p onClick={() => {props.onCompanyClick(props.company)}}>
+            {props.company.name} {props.company.willSponsor}
         </p>
     );
 }
