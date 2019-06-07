@@ -36,6 +36,7 @@ class SearchTable extends React.Component {
 
     onCompanyClick(company) {
         console.log("open " + company.name);
+        
     }
 
     render() {
