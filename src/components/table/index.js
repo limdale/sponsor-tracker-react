@@ -1,26 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class CompaniesTable extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        let companies = this.props.companies.map(company => <CompaniesTableItem onCompanyClick={this.props.onCompanyClick} company={company} />)
-        return (
-            <div>
-                {companies}
-            </div>
-        )
-    }
+const CompaniesTable = ({companies, onCompanyClick}) => {
+    let companyItems = companies.map(company => <CompaniesTableItem onCompanyClick={onCompanyClick} company={company} />)
+    return (
+        <div>
+            {companyItems}
+        </div>
+    )
 }
 
-function CompaniesTableItem(props) {
-    return (
-        <p onClick={() => {props.onCompanyClick(props.company)}}>
-            {props.company.name} {props.company.willSponsor}
-        </p>
-    );
+const CompaniesTableItem = (props) =>
+    <p onClick={() => { props.onCompanyClick(props.company) }}>
+        {props.company.name} {props.company.willSponsor}
+    </p>
+
+CompaniesTable.propTypes = {
+    companies: PropTypes.array,
+    onCompanyClick: PropTypes.func.isRequired
+}
+
+CompaniesTableItem.propTypes = {
+    company: PropTypes.object.isRequired,
+    onCompanyClick: PropTypes.func.isRequired
 }
 
 export default CompaniesTable;
