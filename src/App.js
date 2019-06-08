@@ -1,9 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import SearchTable from './components/searchtable';
-import CompanyDetails from './components/companydetails'
-import { Route } from 'react-router-dom';
+import React from "react";
+import "./App.css";
+import SearchTable from "./components/searchtable";
+import CompanyDetails from "./components/companydetails";
+import { Route } from "react-router-dom";
 
 function App() {
   return (

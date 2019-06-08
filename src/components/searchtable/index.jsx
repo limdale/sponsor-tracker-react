@@ -1,6 +1,8 @@
 import React from "react";
 import SearchBar from "../searchbar";
 import CompaniesTable from "../table";
+// import { connect } from "react-redux";
+// import { clickCompany } from "../actions";
 
 class SearchTable extends React.Component {
   constructor(props) {
@@ -19,9 +21,7 @@ class SearchTable extends React.Component {
     fetch("http://localhost:8081/companies/")
       .then(results => results.json())
       .then(data => {
-        const { allCompanies } = this.state;
         this.setState({ allCompanies: data, filteredCompanies: data });
-        console.log(allCompanies);
       });
   }
 
@@ -38,7 +38,7 @@ class SearchTable extends React.Component {
   }
 
   onCompanyClick(company) {
-    console.log(`open ${company.name}`);
+    this.props.history.push(`/company/${company.id}`);
   }
 
   render() {
