@@ -1,19 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Input } from "antd";
+const Search = Input.Search;
 
 const SearchBar = ({ search, onSearchChange }) => (
-  <div>
-    <label>
-      Search companies:
-      <input
-        type="text"
-        name="companies_search"
-        value={search}
-        onChange={onSearchChange}
-      />
-    </label>
-    <input type="submit" value="Submit" />
-  </div>
+  <Search
+    placeholder="Search Companies"
+    value={search}
+    onChange={value => onSearchChange(value)}
+  />
 );
 
 SearchBar.defaultProps = {

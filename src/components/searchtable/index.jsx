@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "../searchbar";
 import CompaniesTable from "../table";
+import { Row, Col } from "antd";
 // import { connect } from "react-redux";
 // import { clickCompany } from "../actions";
 
@@ -44,12 +45,21 @@ class SearchTable extends React.Component {
   render() {
     const { filteredCompanies, search } = this.state;
     return (
-      <div>
-        <SearchBar search={search} onSearchChange={this.onSearchChange} />
-        <CompaniesTable
-          companies={filteredCompanies}
-          onCompanyClick={this.onCompanyClick}
-        />
+      <div className="search-table">
+        <Row>
+          <Col span={8} offset={8}>
+            <SearchBar search={search} onSearchChange={this.onSearchChange} />
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span={12} offset={6}>
+            <CompaniesTable
+              companies={filteredCompanies}
+              onCompanyClick={this.onCompanyClick}
+            />
+          </Col>
+        </Row>
       </div>
     );
   }
