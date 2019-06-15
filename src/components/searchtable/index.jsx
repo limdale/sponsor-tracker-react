@@ -4,6 +4,7 @@ import CompaniesTable from "../table";
 import { Row, Col } from "antd";
 // import { connect } from "react-redux";
 // import { clickCompany } from "../actions";
+import "./styles.css";
 
 class SearchTable extends React.Component {
   constructor(props) {
@@ -46,20 +47,24 @@ class SearchTable extends React.Component {
     const { filteredCompanies, search } = this.state;
     return (
       <div className="search-table">
-        <Row>
-          <Col span={8} offset={8}>
-            <SearchBar search={search} onSearchChange={this.onSearchChange} />
-          </Col>
-        </Row>
+        <div className="search-bar">
+          <Row>
+            <Col span={8} offset={8}>
+              <SearchBar search={search} onSearchChange={this.onSearchChange} />
+            </Col>
+          </Row>
+        </div>
 
-        <Row>
-          <Col span={12} offset={6}>
-            <CompaniesTable
-              companies={filteredCompanies}
-              onCompanyClick={this.onCompanyClick}
-            />
-          </Col>
-        </Row>
+        <div className="company-table">
+          <Row>
+            <Col span={12} offset={6}>
+              <CompaniesTable
+                companies={filteredCompanies}
+                onCompanyClick={this.onCompanyClick}
+              />
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
