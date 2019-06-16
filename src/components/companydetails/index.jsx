@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.css";
 import { Avatar, Typography, Tag } from "antd";
-const { Title, Paragraph, Text } = Typography;
 
 class CompanyDetails extends React.Component {
   constructor(props) {
