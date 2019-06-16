@@ -1,10 +1,11 @@
 import React from "react";
 import { Layout, Menu, Icon } from "antd";
+import "./styles.css";
 const { Header } = Layout;
 
 const AppHeader = () => (
   <Header className="header">
-    <div className="logo" />
+    <Icon type="dribbble-circle" theme="filled" className="logo" />
     <Menu
       theme="dark"
       mode="horizontal"
