@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout, Menu, Icon } from "antd";
+import { Link } from "react-router-dom";
 import "./styles.css";
 const { Header } = Layout;
 
@@ -12,8 +13,14 @@ const AppHeader = () => (
       defaultSelectedKeys={["1"]}
       style={{ lineHeight: "64px", textAlign: "right" }}
     >
-      <Menu.Item key="1">Companies</Menu.Item>
-      <Menu.Item key="2">About</Menu.Item>
+      <Menu.Item key="1">
+        <Link to="/">Companies</Link>
+      </Menu.Item>
+
+      <Menu.Item key="2">
+        <Link to="/about">About</Link>
+      </Menu.Item>
+
       <Menu.Item key="3">Login</Menu.Item>
       <Menu.SubMenu
         key="4"
