@@ -1,10 +1,11 @@
 import React from "react";
 import { Layout, Menu, Icon } from "antd";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./styles.css";
 const { Header } = Layout;
 
-const AppHeader = () => (
+const AppHeader = ({ onLoginClick }) => (
   <Header className="header">
     <Icon type="dribbble-circle" theme="filled" className="logo" />
     <Menu
@@ -21,7 +22,8 @@ const AppHeader = () => (
         <Link to="/about">About</Link>
       </Menu.Item>
 
-      <Menu.Item key="3">Login</Menu.Item>
+      <Menu.SubMenu key="3" title={"Login"} onTitleClick={onLoginClick} />
+
       <Menu.SubMenu
         key="4"
         title={
@@ -35,5 +37,9 @@ const AppHeader = () => (
     </Menu>
   </Header>
 );
+
+AppHeader.propTypes = {
+  onLoginClick: PropTypes.func.isRequired,
+};
 
 export default AppHeader;
